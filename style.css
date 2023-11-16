@@ -1,0 +1,87 @@
+body, html {
+    margin: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+    background-image: url('bg.jpg'); /* Додавання фонового зображення */
+    background-position: center; /* Центрування зображення */
+    background-repeat: no-repeat; /* Запобігання повторення зображення */
+}
+.magic-ball-wrapper {
+    background-color: #6e4c89ab; /* Фон контейнера */
+    padding: 20px; /* Відступи всередині контейнера */
+    border-radius: 10px; /* Закруглені кути */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Тінь для ефекту підняття */
+}
+.magic-ball-container {
+    position: relative;
+    width: 600px; /* Розмір шару */
+    height: 600px;
+    margin-top: 50px;
+}
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-10px);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translateX(10px);
+    }
+}
+.shake {
+    animation: shake 0.8s ease-in-out infinite;
+}
+.magic-ball-container img.ball {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1; /* Забезпечує, що шар знаходиться під отвором */
+}
+
+.magic-ball-container img.hole {
+    width: 62%; /* Розмір отвору менший, ніж шар */
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2; /* Отвір повинен бути над шаром */
+}
+.input-question {
+    width: 80%; /* Збільшення ширини */
+    padding: 10px; /* Додавання відступу всередині поля */
+    font-size: 16px; /* Збільшення розміру шрифту */
+    margin-bottom: 10px; /* Додавання відступу знизу */
+}
+.answer-button {
+    padding: 10px 20px; /* Додавання відступів всередині кнопки */
+    font-size: 16px; /* Збільшення розміру шрифту */
+    cursor: pointer; /* Курсор у вигляді покажчика, щоб показати, що кнопка - клікабельна */
+}
+.answer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 24px;
+    text-align: center;
+    pointer-events: none;
+    z-index: 3; /* Текст відповіді повинен бути над усім іншим */
+}
+@media (max-width: 768px) {
+    .input-question {
+        width: 90%;
+    }
+    .magic-ball-container {
+        width: 200px;
+        height: 200px;
+    }
+}
