@@ -9,6 +9,7 @@ body, html {
     background-image: url('bg.jpg'); /* Додавання фонового зображення */
     background-position: center; /* Центрування зображення */
     background-repeat: no-repeat; /* Запобігання повторення зображення */
+    background-size: cover;
 }
 .magic-ball-wrapper {
     background-color: #6e4c89ab; /* Фон контейнера */
