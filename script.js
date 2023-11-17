@@ -6,9 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'Дуже ймовірно', 'Без сумніву', 'Не рекомендується', 
 		'Спробуй пізніше' , 'Вдача на твоєму боці'
     ];
-    // Створення і додавання стилів
-    const style = document.createElement('style');
-    document.head.appendChild(style);
+    
 
     // Створення текстового поля
     const input = document.createElement('input');
