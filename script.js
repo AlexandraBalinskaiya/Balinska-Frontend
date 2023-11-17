@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', function() {
         'Дуже ймовірно', 'Без сумніву', 'Не рекомендується', 
 		'Спробуй пізніше' , 'Вдача на твоєму боці'
     ];
-	let lastQuestion = ''; // Змінна для зберігання останнього питання
     // Створення і додавання стилів
     const style = document.createElement('style');
     document.head.appendChild(style);
