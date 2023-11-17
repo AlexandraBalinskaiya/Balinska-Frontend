@@ -2,10 +2,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // Визначення відповідей магічного шару
     const answers = [
         'Ймовірно', 'Точно так', 'Так', 'Ні', 'Точно ні',
-        'Малоймовірно', 'Не зараз', 'Запитайте знову',
+        'Малоймовірно', 'Не зараз', 'Ні в якому випадку',
         'Дуже ймовірно', 'Без сумніву', 'Не рекомендується', 
-		'Спробуй пізніше' , 'Вдача на твоєму боці'
+		'Трохи пізніше' , 'Вдача на твоєму боці'
     ];
+	let lastQuestion = ''; // Змінна для зберігання останнього питання
+    // Створення і додавання стилів
+    const style = document.createElement('style');
+    document.head.appendChild(style);
 
     // Створення текстового поля
     const input = document.createElement('input');
@@ -69,21 +73,17 @@ document.addEventListener('DOMContentLoaded', function() {
 answerButton.addEventListener('click', function() {
     const trimmedQuestion = input.value.trim();
 
-    if (trimmedQuestion === '' || !trimmedQuestion.endsWith('?')) {
+    if (trimmedQuestion === '' || !trimmedQuestion.endsWith('?')||trimmedQuestion.length < 3) {
         alert('Задай питання'); // Виводиться push-повідомлення, якщо питання не задане
-    } else if (trimmedQuestion.length < 3) {
-        alert('Некоректне питання'); // Виводиться push-повідомлення, якщо питання занадто коротке
-    } else {
+    }
+	else {
         // Якщо питання задане коректно, виконується наступний код
         ballContainer.classList.add('shake');
         answerDiv.textContent = getRandomAnswer();
         setTimeout(function() {
             ballContainer.classList.remove('shake');
         }, 1000); // Тривалість анімації 1 секунду
-
         input.value = ''; // Очищення поля вводу після отримання відповіді
     }
 });
-
 });
-
